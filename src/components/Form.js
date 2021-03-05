@@ -5,10 +5,12 @@ import { v1 as uuid } from 'uuid';
 const Form = () => {
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState('');
-    const { dispatchList } = useContext(ListContext);
+    // const { dispatchList } = useContext(ListContext);
+    const { addItem } = useContext(ListContext);
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatchList({ type: 'ADD_ITEM', item: { name, quantity, id: uuid() } });
+        // dispatchList({ type: 'ADD_ITEM', item: { name, quantity, id: uuid() } });
+        addItem({ name, quantity, id: uuid() });
         setName('');
         setQuantity('');
     }

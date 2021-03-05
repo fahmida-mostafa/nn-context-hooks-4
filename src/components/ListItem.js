@@ -2,10 +2,15 @@ import React, { useContext } from 'react';
 import { ListContext } from '../contexts/ListContext';
 
 const ListItem = (props) => {
-    const { dispatchList } = useContext(ListContext);
+    // const { dispatchList } = useContext(ListContext);
+    const { removeItem } = useContext(ListContext);
+    const handleClick = () => {
+        // dispatchList({ type: 'REMOVE_ITEM', id: props.item.id });
+        removeItem(props.item.id);
+    }
     return (
         <div className="list-item"
-            onClick={() => dispatchList({ type: 'REMOVE_ITEM', id: props.item.id })}>
+            onClick={handleClick}>
             <span className="item-name">
                 {props.item.name}
             </span>
